@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Bali Family's Wedding | Dec 4, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crimson: #8B0000;
+      --deep-maroon: #3B0305;
+      --royal-red: #6E070B;
+      --gold: #D4AF37;
+      --bright-gold: #F9E076;
+      --cream: #FFFDF7;
+      --warm-ivory: #FDF5E4;
+      --text-dark: #2B1007;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--deep-maroon);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Continuous Top-to-Bottom Falling Temple Flowers Canvas */
+    #petal-layer {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10000;
+    }
+
+    /* Envelope Seal Entrance Screen */
+    #envelope-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9990;
+      background: radial-gradient(circle at top, #5C0508 0%, #240102 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: opacity 0.85s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.85s ease;
+    }
+
+    #envelope-screen.open {
+      opacity: 0;
+      transform: scale(1.12);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .envelope-card {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      aspect-ratio: 3 / 4;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 3px solid var(--gold);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.75), 0 0 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .envelope-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .seal-press-zone {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      background: rgba(255, 248, 220, 0.12);
+      border: 2px dashed var(--bright-gold);
+      box-shadow: 0 0 28px rgba(249, 224, 118, 0.85);
+      cursor: pointer;
+      animation: sealPulse 2s infinite ease-in-out;
+    }
+
+    .seal-press-zone:active {
+      transform: translate(-50%, -50%) scale(0.92);
+    }
+
+    @keyframes sealPulse {
+      0%, 100% { box-shadow: 0 0 18px rgba(249, 224, 118, 0.65); }
+      50% { box-shadow: 0 0 38px rgba(249, 224, 118, 1); }
+    }
+
+    .envelope-caption {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--bright-gold);
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .envelope-sub {
+      margin-top: 4px;
+      font-size: 11.5px;
+      color: #F4E3C1;
+    }
+
+    /* Main Scrollable Mobile Invitation Container */
+    .app-container {
+      width: 100%;
+      max-width: 460px;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--warm-ivory) 55%, var(--cream) 100%);
+      min-height: 100vh;
+      position: relative;
+      box-shadow: 0 0 45px rgba(0, 0, 0, 0.7);
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+    }
+
+    /* Royal Temple Header */
+    .temple-header {
+      background: linear-gradient(160deg, #8B0000 0%, #4A0404 100%);
+      padding: 24px 18px 36px;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+      border-bottom-left-radius: 50% 24px;
+      border-bottom-right-radius: 50% 24px;
+      box-shadow: 0 8px 22px rgba(74, 4, 4, 0.3);
+      position: relative;
+    }
+
+    .sanskrit-top {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--bright-gold);
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .temple-pill {
+      display: inline-block;
+      background: rgba(249, 224, 118, 0.16);
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      color: var(--bright-gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .family-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--bright-gold);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+      line-height: 1.3;
+    }
+
+    .toon-showcase {
+      width: 156px;
+      height: 156px;
+      margin: 14px auto 4px;
+      border-radius: 50%;
+      border: 3px solid var(--bright-gold);
+      background: var(--cream);
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    .toon-showcase img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .diya-strip {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 28px;
+      margin-top: -18px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .diya-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+      animation: diyaGlow 1.8s infinite alternate;
+    }
+
+    @keyframes diyaGlow {
+      0% { transform: scale(1); box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
+      100% { transform: scale(1.06); box-shadow: 0 4px 18px rgba(249, 224, 118, 0.75); }
+    }
+
+    /* Sections & Dividers */
+    .section {
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .blessing-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 20px;
+      font-weight: 600;
+      color: #592512;
+      line-height: 1.45;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    /* Days To Go Timer Banner */
+    .days-to-go-card {
+      margin-top: 16px;
+      background: linear-gradient(135deg, #FFF8E7 0%, #FDE9B8 100%);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 6px 18px rgba(139, 0, 0, 0.1);
+    }
+
+    .days-to-go-label {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--crimson);
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .days-to-go-value {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--deep-maroon);
+      margin: 2px 0;
+      line-height: 1.2;
+    }
+
+    .days-to-go-sub {
+      font-size: 11px;
+      color: #6B3E26;
+      font-weight: 500;
+    }
+
+    .scroll-cue {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--crimson);
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      animation: bounceDown 1.8s infinite;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    .gold-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 16px auto;
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .gold-divider span.line {
+      height: 1px;
+      width: 65px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* 4 Couples Grid */
+    .heading-royal {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--crimson);
+      letter-spacing: 0.8px;
+      margin-bottom: 5px;
+    }
+
+    .sub-note {
+      font-size: 11.5px;
+      color: #7A4B3A;
+      margin-bottom: 16px;
+    }
+
+    .couples-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .couple-tile {
+      background: linear-gradient(150deg, #FFFFFF 0%, #FDF2D6 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 14px;
+      padding: 18px 10px 14px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(139, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .couple-tile:active {
+      transform: scale(0.97);
+    }
+
+    .couple-tile.blessed {
+      border-color: var(--crimson);
+      background: linear-gradient(150deg, #FFFDF5 0%, #FBE2A6 100%);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+
+    .tile-tag {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--crimson);
+      color: var(--bright-gold);
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 12px;
+      border: 1px solid var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      white-space: nowrap;
+    }
+
+    .partner-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--deep-maroon);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .and-sign {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 2px 0;
+    }
+
+    .bless-chip {
+      margin-top: 8px;
+      display: inline-block;
+      font-size: 10px;
+      color: #7D4B2B;
+      background: rgba(212, 175, 55, 0.18);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* Date Reveal Card */
+    .reveal-panel {
+      background: linear-gradient(145deg, #7A0609 0%, #420305 100%);
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 22px 16px;
+      color: var(--cream);
+      box-shadow: 0 10px 24px rgba(66, 3, 5, 0.25);
+    }
+
+    .reveal-panel h3 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 14.5px;
+      color: var(--bright-gold);
+      margin-bottom: 4px;
+    }
+
+    .reveal-panel p {
+      font-size: 11.5px;
+      color: #F6E7C8;
+      margin-bottom: 14px;
+    }
+
+    .date-reveal-box {
+      position: relative;
+      width: 264px;
+      height: 114px;
+      margin: 0 auto;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid var(--bright-gold);
+      background: var(--cream);
+      user-select: none;
+    }
+
+    .date-underlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--deep-maroon);
+      padding: 8px;
+    }
+
+    .date-day {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--crimson);
+      text-transform: uppercase;
+    }
+
+    .date-main {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--deep-maroon);
+      margin: 2px 0;
+    }
+
+    .date-time {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6B3E26;
+    }
+
+    #date-foil-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .instant-reveal-btn {
+      margin-top: 12px;
+      background: rgba(249, 224, 118, 0.14);
+      border: 1px solid rgba(249, 224, 118, 0.65);
+      color: var(--bright-gold);
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+
+    /* Countdown */
+    .countdown-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .cd-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 10px 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .cd-num {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--crimson);
+      display: block;
+    }
+
+    .cd-unit {
+      font-size: 10px;
+      font-weight: 600;
+      color: #6B3E26;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    /* Venue Card */
+    .venue-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--gold);
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 8px 20px rgba(139, 0, 0, 0.08);
+    }
+
+    .venue-chip {
+      display: inline-block;
+      background: rgba(139, 0, 0, 0.08);
+      color: var(--crimson);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .venue-date-line {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--deep-maroon);
+    }
+
+    .venue-time-line {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--crimson);
+      margin: 4px 0 14px;
+    }
+
+    .hall-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .hall-addr {
+      font-size: 13px;
+      color: #5C3A28;
+      margin-bottom: 18px;
+    }
+
+    .btn-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-gold-dark, .btn-ivory-gold {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-gold-dark {
+      background: linear-gradient(135deg, #9E0B0F 0%, #620406 100%);
+      color: var(--bright-gold);
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.25);
+    }
+
+    .btn-ivory-gold {
+      background: var(--warm-ivory);
+      color: var(--deep-maroon);
+      border: 1.5px solid var(--gold);
+    }
+
+    /* Floating Audio & Blessings */
+    .audio-btn {
+      position: fixed;
+      top: 14px;
+      right: max(14px, calc(50% - 216px));
+      z-index: 9995;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(61, 3, 5, 0.92);
+      border: 1.5px solid var(--gold);
+      color: var(--bright-gold);
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .sticky-bless {
+      position: sticky;
+      bottom: 16px;
+      z-index: 850;
+      display: flex;
+      justify-content: center;
+      padding: 0 18px;
+      pointer-events: none;
+    }
+
+    .sticky-bless button {
+      pointer-events: auto;
+      background: linear-gradient(135deg, #F9E076 0%, #D4AF37 100%);
+      color: var(--deep-maroon);
+      border: 2px solid #FFF8DC;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(61, 3, 5, 0.35);
+    }
+
+    #toast-msg {
+      position: fixed;
+      top: 64px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-16px);
+      background: var(--deep-maroon);
+      color: var(--bright-gold);
+      border: 1px solid var(--gold);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 9996;
+      white-space: nowrap;
+    }
+
+    #toast-msg.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Footer with VerveInvites Logo */
+    footer {
+      text-align: center;
+      padding: 24px 16px 38px;
+      font-size: 11px;
+      color: #7A4B3A;
+      border-top: 1px solid rgba(212, 175, 55, 0.35);
+    }
+
+    .verve-brand {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 24px;
+      background: rgba(139, 0, 0, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      color: var(--deep-maroon);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+
+    .verve-brand strong {
+      color: var(--crimson);
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Continuous Top-to-Bottom Falling Temple Flowers -->
+  <canvas id="petal-layer"></canvas>
+
+  <!-- Background Music -->
+  <audio id="bgm" loop preload="auto">
+    <source src="assets/bgm.mp3" type="audio/mpeg" />
+    <source src="bgm.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button class="audio-btn" id="audioToggle" aria-label="Toggle Music">🔊</button>
+  <div id="toast-msg">🌸 Blessings Showered!</div>
+
+  <!-- Sealed Envelope Entrance -->
+  <div id="envelope-screen">
+    <div class="envelope-card">
+      <img src="assets/envelope.png" alt="Bali Family Wedding Envelope" />
+      <button class="seal-press-zone" id="sealPressBtn" aria-label="Press seal to open envelope"></button>
+    </div>
+    <div class="envelope-caption">Bali Family's Wedding</div>
+    <div class="envelope-sub">Press the wax seal on the envelope to open</div>
+  </div>
+
+  <!-- Main Scrollable Royal Temple Invitation -->
+  <main class="app-container">
+
+    <header class="temple-header">
+      <div class="sanskrit-top">॥ श्री गणेशाय नमः ॥</div>
+      <span class="temple-pill">Royal Temple Wedding • Haveri</span>
+      <h1 class="family-title">Bali Family's Wedding</h1>
+      <div class="toon-showcase">
+        <img src="assets/couple-toon.png" alt="Hindu Marriage Bride and Groom Illustration" />
+      </div>
+    </header>
+
+    <div class="diya-strip">
+      <div class="diya-icon">🪔</div>
+      <div class="diya-icon">🪔</div>
+    </div>
+
+    <!-- Opening Blessing + Days To Go Timer -->
+    <section class="section">
+      <p class="blessing-quote">
+        “With love, joy, and blessings,<br />
+        we warmly invite you to the<br />
+        wedding ceremony of”
+      </p>
+
+      <div class="days-to-go-card">
+        <div class="days-to-go-label">Wedding Timer</div>
+        <div class="days-to-go-value" id="daysToGoText">Days to Go</div>
+        <div class="days-to-go-sub">Friday, December 4, 2026 • 8:00 AM</div>
+      </div>
+
+      <div class="scroll-cue">↓ Scroll down to explore ↓</div>
+
+      <div class="gold-divider">
+        <span class="line"></span>
+        <span>❖</span>
+        <span class="line"></span>
+      </div>
+
+      <h2 class="heading-royal">Four Sacred Unions</h2>
+      <p class="sub-note">Tap any couple card to shower your blessings</p>
+
+      <div class="couples-grid">
+        <div class="couple-tile" onclick="sendCoupleBlessing(this, 'Virupakshappa & Deepa')">
+          <span class="tile-tag">Couple I</span>
+          <div class="partner-name">VIRUPAKSHAPPA</div>
+          <div class="and-sign">&amp;</div>
+          <div class="partner-name">DEEPA</div>
+          <span class="bless-chip">🌸 Tap to Bless</span>
+        </div>
+
+        <div class="couple-tile" onclick="sendCoupleBlessing(this, 'Shivayogi & Chaitra')">
+          <span class="tile-tag">Couple II</span>
+          <div class="partner-name">SHIVAYOGI</div>
+          <div class="and-sign">&amp;</div>
+          <div class="partner-name">CHAITRA</div>
+          <span class="bless-chip">🌸 Tap to Bless</span>
+        </div>
+
+        <div class="couple-tile" onclick="sendCoupleBlessing(this, 'Danesh & Purnima')">
+          <span class="tile-tag">Couple III</span>
+          <div class="partner-name">DANESH</div>
+          <div class="and-sign">&amp;</div>
+          <div class="partner-name">PURNIMA</div>
+          <span class="bless-chip">🌸 Tap to Bless</span>
+        </div>
+
+        <div class="couple-tile" onclick="sendCoupleBlessing(this, 'Muragesh & Bhairavi')">
+          <span class="tile-tag">Couple IV</span>
+          <div class="partner-name">MURAGESH</div>
+          <div class="and-sign">&amp;</div>
+          <div class="partner-name">BHAIRAVI</div>
+          <span class="bless-chip">🌸 Tap to Bless</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Date Reveal Card -->
+    <section class="section">
+      <div class="reveal-panel">
+        <h3>Auspicious Date Reveal Card</h3>
+        <p>Scratch the gold foil or tap reveal to uncover the wedding date</p>
+
+        <div class="date-reveal-box">
+          <div class="date-underlay">
+            <span class="date-day">Friday</span>
+            <span class="date-main">04 . 12 . 2026</span>
+            <span class="date-time">8:00 AM Muhurtham</span>
+          </div>
+          <canvas id="date-foil-canvas" width="264" height="114"></canvas>
+        </div>
+
+        <button class="instant-reveal-btn" type="button" onclick="revealDateInstant()">✨ Reveal Date</button>
+      </div>
+    </section>
+
+    <!-- Live Countdown -->
+    <section class="section">
+      <h3 class="heading-royal">Countdown to the Ceremony</h3>
+      <div class="countdown-row">
+        <div class="cd-box">
+          <span class="cd-num" id="days">00</span>
+          <span class="cd-unit">Days</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="hours">00</span>
+          <span class="cd-unit">Hours</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="mins">00</span>
+          <span class="cd-unit">Mins</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="secs">00</span>
+          <span class="cd-unit">Secs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Venue & Quick Links -->
+    <section class="section">
+      <div class="venue-box">
+        <span class="venue-chip">Wedding Ceremony</span>
+        <div class="venue-date-line">Friday, December 4, 2026</div>
+        <div class="venue-time-line">⏰ 8:00 AM</div>
+
+        <div class="gold-divider">
+          <span class="line"></span>
+          <span>🏛️</span>
+          <span class="line"></span>
+        </div>
+
+        <div class="hall-name">S.P Grand Convention Hall</div>
+        <div class="hall-addr">Guttal Road, Haveri</div>
+
+        <div class="btn-stack">
+          <a class="btn-gold-dark" href="https://www.google.com/maps/search/?api=1&query=S.P+Grand+Convention+Hall+Guttal+Road+Haveri" target="_blank" rel="noopener">
+            🗺️ Get Directions on Google Maps
+          </a>
+          <a class="btn-ivory-gold" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bali+Family's+Wedding+(Virupakshappa+%26+Deepa,+Shivayogi+%26+Chaitra,+Danesh+%26+Purnima,+Muragesh+%26+Bhairavi)&dates=20261204T023000Z/20261204T063000Z&details=Wedding+ceremony+at+S.P+Grand+Convention+Hall,+Guttal+Road,+Haveri.&location=S.P+Grand+Convention+Hall,+Guttal+Road,+Haveri" target="_blank" rel="noopener">
+            📅 Add to Google Calendar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="sticky-bless">
+      <button type="button" onclick="burstPetals(40); showToast('🌸 Blessings Showered on All Four Couples!')">
+        🌸 Shower Blessings
+      </button>
+    </div>
+
+    <footer>
+      Bali Family's Wedding • S.P Grand Convention Hall, Haveri<br />
+      <div class="verve-brand" aria-label="VerveInvites">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="12.5" fill="#8B0000" stroke="#D4AF37" stroke-width="1.5"/>
+          <path d="M8.5 9.5L14 19L19.5 9.5H16.6L14 14.3L11.4 9.5H8.5Z" fill="#F9E076"/>
+        </svg>
+        <span>Crafted by <strong>VerveInvites</strong></span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // 1. Envelope Seal Opening & Music Start
+    const envelopeScreen = document.getElementById('envelope-screen');
+    const sealPressBtn = document.getElementById('sealPressBtn');
+    const bgm = document.getElementById('bgm');
+    const audioToggle = document.getElementById('audioToggle');
+    let musicPlaying = false;
+
+    sealPressBtn.addEventListener('click', () => {
+      envelopeScreen.classList.add('open');
+      burstPetals(45);
+      bgm.play().then(() => {
+        musicPlaying = true;
+        audioToggle.textContent = '🔊';
+      }).catch(() => {
+        musicPlaying = false;
+        audioToggle.textContent = '🔇';
+      });
+    });
+
+    audioToggle.addEventListener('click', () => {
+      if (musicPlaying) {
+        bgm.pause();
+        musicPlaying = false;
+        audioToggle.textContent = '🔇';
+      } else {
+        bgm.play().then(() => {
+          musicPlaying = true;
+          audioToggle.textContent = '🔊';
+        });
+      }
+    });
+
+    // 2. Toast Feedback
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast-msg');
+      toast.textContent = message;
+      toast.classList.add('visible');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 2400);
+    }
+
+    // 3. Couple Card Blessing Interaction
+    function sendCoupleBlessing(card, names) {
+      card.classList.add('blessed');
+      const chip = card.querySelector('.bless-chip');
+      chip.textContent = '✨ Blessed!';
+      burstPetals(30);
+      showToast(`🌸 Blessings sent to ${names}!`);
+    }
+
+    // 4. Date Reveal Scratch Card
+    const foilCanvas = document.getElementById('date-foil-canvas');
+    const fCtx = foilCanvas.getContext('2d');
+    let scratching = false;
+
+    function drawGoldFoil() {
+      const grad = fCtx.createLinearGradient(0, 0, foilCanvas.width, foilCanvas.height);
+      grad.addColorStop(0, '#D4AF37');
+      grad.addColorStop(0.5, '#F9E076');
+      grad.addColorStop(1, '#B8860B');
+      fCtx.globalCompositeOperation = 'source-over';
+      fCtx.fillStyle = grad;
+      fCtx.fillRect(0, 0, foilCanvas.width, foilCanvas.height);
+
+      fCtx.fillStyle = '#3B0305';
+      fCtx.font = 'bold 13px Poppins, sans-serif';
+      fCtx.textAlign = 'center';
+      fCtx.textBaseline = 'middle';
+      fCtx.fillText('✨ SCRATCH FOR DATE ✨', foilCanvas.width / 2, foilCanvas.height / 2);
+    }
+
+    function getPointerPos(e) {
+      const rect = foilCanvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return {
+        x: (clientX - rect.left) * (foilCanvas.width / rect.width),
+        y: (clientY - rect.top) * (foilCanvas.height / rect.height)
+      };
+    }
+
+    function scratchFoil(e) {
+      if (!scratching) return;
+      e.preventDefault();
+      const pos = getPointerPos(e);
+      fCtx.globalCompositeOperation = 'destination-out';
+      fCtx.beginPath();
+      fCtx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+      fCtx.fill();
+    }
+
+    function revealDateInstant() {
+      fCtx.clearRect(0, 0, foilCanvas.width, foilCanvas.height);
+      burstPetals(35);
+      showToast('📅 Save the Date: Dec 4, 2026!');
+    }
+
+    foilCanvas.addEventListener('mousedown', (e) => { scratching = true; scratchFoil(e); });
+    foilCanvas.addEventListener('mousemove', scratchFoil);
+    window.addEventListener('mouseup', () => { scratching = false; });
+
+    foilCanvas.addEventListener('touchstart', (e) => { scratching = true; scratchFoil(e); }, { passive: false });
+    foilCanvas.addEventListener('touchmove', scratchFoil, { passive: false });
+    window.addEventListener('touchend', () => { scratching = false; });
+
+    drawGoldFoil();
+
+    // 5. Live Countdown & "Days to Go" Timer to Dec 4, 2026 at 8:00 AM IST
+    const weddingTimestamp = new Date('2026-12-04T08:00:00+05:30').getTime();
+    const daysToGoText = document.getElementById('daysToGoText');
+
+    function tickCountdown() {
+      const now = Date.now();
+      const diff = weddingTimestamp - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('mins').textContent = '00';
+        document.getElementById('secs').textContent = '00';
+        daysToGoText.textContent = 'Wedding Day is Here!';
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / 1000 / 60) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = String(d).padStart(2, '0');
+      document.getElementById('hours').textContent = String(h).padStart(2, '0');
+      document.getElementById('mins').textContent = String(m).padStart(2, '0');
+      document.getElementById('secs').textContent = String(s).padStart(2, '0');
+
+      daysToGoText.textContent = d === 1 ? '1 Day to Go' : `${d} Days to Go`;
+    }
+
+    setInterval(tickCountdown, 1000);
+    tickCountdown();
+
+    // 6. Continuous Top-to-Bottom Royal Temple Flower Petals (Active From Beginning)
+    const petalCanvas = document.getElementById('petal-layer');
+    const pCtx = petalCanvas.getContext('2d');
+
+    function resizeCanvas() {
+      petalCanvas.width = window.innerWidth;
+      petalCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const flowerColors = [
+      '#FF9933', // Marigold Saffron
+      '#FFB703', // Haldi / Turmeric Gold
+      '#D62828', // Temple Crimson Rose
+      '#F48FB1', // Sacred Lotus Pink
+      '#FFF3B0'  // Jasmine Blossom
+    ];
+
+    const ambientPetals = [];
+    const burstParticles = [];
+    const AMBIENT_COUNT = 26;
+
+    function createPetal(randomY = false) {
+      return {
+        x: Math.random() * petalCanvas.width,
+        y: randomY ? Math.random() * petalCanvas.height : -15 - Math.random() * 80,
+        size: 5 + Math.random() * 6,
+        speedY: 0.9 + Math.random() * 1.4,
+        drift: (Math.random() - 0.5) * 0.8,
+        swaySpeed: 0.015 + Math.random() * 0.02,
+        swayOffset: Math.random() * Math.PI * 2,
+        rotation: Math.random() * 360,
+        rotSpeed: (Math.random() - 0.5) * 2.5,
+        color: flowerColors[Math.floor(Math.random() * flowerColors.length)],
+        opacity: 0.75 + Math.random() * 0.25
+      };
+    }
+
+    for (let i = 0; i < AMBIENT_COUNT; i++) {
+      ambientPetals.push(createPetal(true));
+    }
+
+    function burstPetals(count = 35) {
+      for (let i = 0; i < count; i++) {
+        burstParticles.push({
+          x: Math.random() * petalCanvas.width,
+          y: -10 - Math.random() * 120,
+          size: 6 + Math.random() * 7,
+          speedY: 2.2 + Math.random() * 3.2,
+          drift: (Math.random() - 0.5) * 2.2,
+          swaySpeed: 0.025,
+          swayOffset: Math.random() * Math.PI * 2,
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 5,
+          color: flowerColors[Math.floor(Math.random() * flowerColors.length)],
+          opacity: 0.95
+        });
+      }
+    }
+
+    function drawFlowerPetal(p) {
+      pCtx.save();
+      pCtx.globalAlpha = p.opacity;
+      pCtx.translate(p.x, p.y);
+      pCtx.rotate((p.rotation * Math.PI) / 180);
+      pCtx.fillStyle = p.color;
+
+      pCtx.beginPath();
+      pCtx.moveTo(0, -p.size);
+      pCtx.bezierCurveTo(p.size * 0.85, -p.size * 0.4, p.size * 0.75, p.size * 0.7, 0, p.size);
+      pCtx.bezierCurveTo(-p.size * 0.75, p.size * 0.7, -p.size * 0.85, -p.size * 0.4, 0, -p.size);
+      pCtx.fill();
+      pCtx.restore();
+    }
+
+    function renderFlowerLoop() {
+      pCtx.clearRect(0, 0, petalCanvas.width, petalCanvas.height);
+
+      for (let i = 0; i < ambientPetals.length; i++) {
+        const p = ambientPetals[i];
+        p.y += p.speedY;
+        p.swayOffset += p.swaySpeed;
+        p.x += p.drift + Math.sin(p.swayOffset) * 0.65;
+        p.rotation += p.rotSpeed;
+
+        drawFlowerPetal(p);
+
+        if (p.y > petalCanvas.height + 20) {
+          ambientPetals[i] = createPetal(false);
+        }
+      }
+
+      for (let i = burstParticles.length - 1; i >= 0; i--) {
+        const b = burstParticles[i];
+        b.y += b.speedY;
+        b.swayOffset += b.swaySpeed;
+        b.x += b.drift + Math.sin(b.swayOffset) * 0.9;
+        b.rotation += b.rotSpeed;
+
+        drawFlowerPetal(b);
+
+        if (b.y > petalCanvas.height + 25) {
+          burstParticles.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(renderFlowerLoop);
+    }
+
+    renderFlowerLoop();
+  </script>
+</body>
+</html>
